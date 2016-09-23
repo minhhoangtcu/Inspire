@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B82FD7421D94F14D000F19A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FD7411D94F14D000F19A8 /* AppDelegate.swift */; };
-		B82FD7441D94F14D000F19A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FD7431D94F14D000F19A8 /* ViewController.swift */; };
+		B82FD7441D94F14D000F19A8 /* CatagoriesTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FD7431D94F14D000F19A8 /* CatagoriesTable.swift */; };
 		B82FD7471D94F14D000F19A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82FD7451D94F14D000F19A8 /* Main.storyboard */; };
 		B82FD7491D94F14D000F19A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B82FD7481D94F14D000F19A8 /* Assets.xcassets */; };
 		B82FD74C1D94F14D000F19A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82FD74A1D94F14D000F19A8 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		B82FD73E1D94F14D000F19A8 /* Inspire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inspire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82FD7411D94F14D000F19A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B82FD7431D94F14D000F19A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B82FD7431D94F14D000F19A8 /* CatagoriesTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoriesTable.swift; sourceTree = "<group>"; };
 		B82FD7461D94F14D000F19A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B82FD7481D94F14D000F19A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B82FD74B1D94F14D000F19A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B82FD7411D94F14D000F19A8 /* AppDelegate.swift */,
-				B82FD7431D94F14D000F19A8 /* ViewController.swift */,
+				B82FD7431D94F14D000F19A8 /* CatagoriesTable.swift */,
 				B82FD7451D94F14D000F19A8 /* Main.storyboard */,
 				B82FD7481D94F14D000F19A8 /* Assets.xcassets */,
 				B82FD74A1D94F14D000F19A8 /* LaunchScreen.storyboard */,
@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					B82FD73D1D94F14D000F19A8 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = B43REW4B7B;
 						ProvisioningStyle = Automatic;
 					};
 					B82FD7511D94F14D000F19A8 = {
@@ -259,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B82FD7441D94F14D000F19A8 /* ViewController.swift in Sources */,
+				B82FD7441D94F14D000F19A8 /* CatagoriesTable.swift in Sources */,
 				B82FD7421D94F14D000F19A8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B43REW4B7B;
 				INFOPLIST_FILE = Inspire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.mhoang.Inspire;
@@ -424,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B43REW4B7B;
 				INFOPLIST_FILE = Inspire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.mhoang.Inspire;
@@ -505,6 +508,7 @@
 				B82FD7681D94F14D000F19A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B82FD7691D94F14D000F19A8 /* Build configuration list for PBXNativeTarget "InspireTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +517,7 @@
 				B82FD76B1D94F14D000F19A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B82FD76C1D94F14D000F19A8 /* Build configuration list for PBXNativeTarget "InspireUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +526,7 @@
 				B82FD76E1D94F14D000F19A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
