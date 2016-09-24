@@ -118,6 +118,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="explore" id="R9j-BZ-e3A"/>
                     <navigationItem key="navigationItem" id="N8d-Di-QsE"/>
+                    <connections>
+                        <outlet property="catagoriesTable" destination="Kii-Ke-ACm" id="geG-LQ-kNL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6H-lE-fsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -136,7 +139,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mCa-cS-GXR" id="cvB-Nq-YuI">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -177,6 +180,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ebI-JP-97u"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="1H4-6l-kv4">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

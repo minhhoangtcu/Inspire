@@ -7,12 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class PictureGetter {
     
     var photos: [Photo] = []
     
-    func getUrls() {
+    func setImage(table: CatagoriesTable) {
+        print("Finished loading, refreshing table!")
+        table.catagoriesTable.reloadData()
+    }
+    
+    func getUrls(completionHandler functionToExecuteAtTheEnd: @escaping (Void) -> Void) {
         
         let methodParametersForSearch = [
             Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.MethodSearch,
@@ -96,7 +102,7 @@ class PictureGetter {
             
             DispatchQueue.main.async {
                 self.photos = tempPhotos
-                print(self.photos[0].title)
+                functionToExecuteAtTheEnd()
             }
         }
         

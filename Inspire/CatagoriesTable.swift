@@ -16,6 +16,11 @@ class CatagoriesTable: UITableViewController {
         static let doubleCatagory = "DoubleCatagory"
     }
     
+    @IBOutlet var catagoriesTable: UITableView!
+    
+    // defines all picture getters
+    let pc = PictureGetter()
+    
     // defines all catagories that we want to display
     let catagories: [[String]] = [["random"],
                                   ["portrait", "landscape"],
@@ -37,6 +42,10 @@ class CatagoriesTable: UITableViewController {
             }
             
             cell.catagoryLabel = catagories[0][0]
+            if !pc.photos.isEmpty {
+                cell.catagoryImage = pc.photos[0].image
+            }
+            
             return cell
             
         } else {
@@ -74,8 +83,14 @@ class CatagoriesTable: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let pc = PictureGetter()
-        pc.getUrls()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pc.getUrls {
+            print("Finished loading data")
+            self.catagoriesTable.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
