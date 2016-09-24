@@ -74,7 +74,8 @@ class CatagoriesTable: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let pc = PictureGetter()
+        pc.getUrls()
     }
 
     override func didReceiveMemoryWarning() {
