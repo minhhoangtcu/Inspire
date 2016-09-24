@@ -18,6 +18,7 @@
 		B82FD74C1D94F14D000F19A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82FD74A1D94F14D000F19A8 /* LaunchScreen.storyboard */; };
 		B82FD7571D94F14D000F19A8 /* InspireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FD7561D94F14D000F19A8 /* InspireTests.swift */; };
 		B82FD7621D94F14D000F19A8 /* InspireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FD7611D94F14D000F19A8 /* InspireUITests.swift */; };
+		B8996A1B1D96E5C500D335E7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8996A1A1D96E5C500D335E7 /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B82FD75D1D94F14D000F19A8 /* InspireUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InspireUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82FD7611D94F14D000F19A8 /* InspireUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspireUITests.swift; sourceTree = "<group>"; };
 		B82FD7631D94F14D000F19A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8996A1A1D96E5C500D335E7 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				B82FD7411D94F14D000F19A8 /* AppDelegate.swift */,
 				B82FD7431D94F14D000F19A8 /* CatagoriesTable.swift */,
 				B8089D821D96343400316BF2 /* PicturesGetter.swift */,
+				B8996A1A1D96E5C500D335E7 /* Photo.swift */,
 				B8089D841D96396B00316BF2 /* FlickrAPIConstants.swift */,
 				B8089D801D96317200316BF2 /* DoubleCatagoryCell.swift */,
 				B82FD7451D94F14D000F19A8 /* Main.storyboard */,
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8996A1B1D96E5C500D335E7 /* Photo.swift in Sources */,
 				B8089D811D96317200316BF2 /* DoubleCatagoryCell.swift in Sources */,
 				B818316F1D961D6D0003DF04 /* SingleCatagoryCell.swift in Sources */,
 				B8089D831D96343400316BF2 /* PicturesGetter.swift in Sources */,

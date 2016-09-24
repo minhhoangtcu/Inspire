@@ -10,22 +10,18 @@ import Foundation
 
 class PictureGetter {
     
-    var urls: [String]!
-    
-    init() {
-        urls = []
-    }
+    var photos: [Photo] = []
     
     func getUrls() {
         
         let methodParametersForSearch = [
-        Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.MethodSearch,
-        Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
-        Constants.FlickrParameterKeys.Tags: Constants.FlickrParameterValues.TagsForPortrait,
-        Constants.FlickrParameterKeys.Extras: Constants.FlickrParameterValues.MediumURL,
-        Constants.FlickrParameterKeys.NumberOfImages: Constants.FlickrParameterValues.TenImage,
-        Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.Format,
-        Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
+            Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.MethodSearch,
+            Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
+            Constants.FlickrParameterKeys.Tags: Constants.FlickrParameterValues.TagsForPortrait,
+            Constants.FlickrParameterKeys.Extras: Constants.FlickrParameterValues.MediumURL,
+            Constants.FlickrParameterKeys.NumberOfImages: Constants.FlickrParameterValues.TenImage,
+            Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.Format,
+            Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
         ]
         
         // create url and request
@@ -76,23 +72,31 @@ class PictureGetter {
                     return
             }
             
-            var tempURLS: [String] = []
+            var tempPhotos: [Photo] = []
             
             // get all the info of the photo
             for photo in photos {
                 
                 // TODO: Create a Photo class and store the data into it instead
-                guard let url = photo[Constants.FlickrParameterValues.MediumURL] as? String else {
-                    print("PicturesGetter: Cannot find keys '\(Constants.FlickrParameterValues.MediumURL) in \(photo)")
+                guard let url = photo[Constants.FlickrResponseKeys.MediumURL] as? String else {
+                    print("PicturesGetter: Cannot find keys '\(Constants.FlickrResponseKeys.MediumURL) in \(photo)")
                     return
                 }
                 
-                tempURLS.append(url)
+                guard let title = photo[Constants.FlickrResponseKeys.Title] as? String else {
+                    print("PicturesGetter: Cannot find keys '\(Constants.FlickrResponseKeys.Title) in \(photo)")
+                    return
+                }
+                
+                let tempPhoto = Photo(url: url, title: title)
+                tempPhoto.requestImage()
+                
+                tempPhotos.append(tempPhoto)
             }
             
             DispatchQueue.main.async {
-                self.urls = tempURLS
-                print(self.urls)
+                self.photos = tempPhotos
+                print(self.photos[0].title)
             }
         }
         
