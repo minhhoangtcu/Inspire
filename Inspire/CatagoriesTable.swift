@@ -41,10 +41,13 @@ class CatagoriesTable: UITableViewController {
             
         } else {
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.doubleCatagory) else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.doubleCatagory) as? DoubleCatagoryCell else {
                 print("CatagoriesTable: Cannot dequeue cell named \(CellIdentifiers.doubleCatagory)")
                 return UITableViewCell() // basically return an empty cell
             }
+            
+            cell.leftCatagoryLabel = catagories[indexPath.section + indexPath.row][0] // we need to include indexPath.section because we want to ignore the first catagory.
+            cell.rightCatagoryLabel = catagories[indexPath.section + indexPath.row][1]
             
             return cell
             
