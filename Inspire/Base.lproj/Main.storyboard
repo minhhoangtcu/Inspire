@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleCategory" rowHeight="300" id="u3t-t6-JtD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleCategory" rowHeight="300" id="u3t-t6-JtD" customClass="SingleCatagoryCell" customModule="Inspire" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u3t-t6-JtD" id="dJx-zQ-n6o">
@@ -48,6 +48,10 @@
                                 <constraints>
                                     <constraint firstItem="EdK-82-x7P" firstAttribute="height" secondItem="u3t-t6-JtD" secondAttribute="height" id="oai-jN-i0r"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="hux-sV-RLR" id="Wyu-Vg-ecW"/>
+                                    <outlet property="singleImageView" destination="6Vk-gI-A2o" id="4v3-dJ-vGE"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DoubleCatagory" rowHeight="150" id="zD1-mD-y2d">
                                 <rect key="frame" x="0.0" y="392" width="375" height="150"/>
