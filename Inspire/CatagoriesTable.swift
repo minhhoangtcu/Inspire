@@ -19,7 +19,7 @@ class CatagoriesTable: UITableViewController {
     @IBOutlet var catagoriesTable: UITableView!
     
     // defines all picture getters
-    let pc = PictureGetter()
+    let pc = PictureGetter(withTags: "portrait", numOfPictures: 10)
     
     // defines all catagories that we want to display
     let catagories: [[String]] = [["random"],

@@ -39,9 +39,6 @@ struct Constants {
         static let MethodSearch = "flickr.photos.search"
         static let TagsForPortrait = "portrait"
         static let Format = "json"
-        static let OneImage = "1"
-        static let TenImage = "10"
-        static let HundredImage = "100"
         static let DisableJSONCallback = "1"
         static let MediumURL = "url_m"
     }

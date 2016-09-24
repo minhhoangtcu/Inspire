@@ -12,10 +12,20 @@ import UIKit
 class PictureGetter {
     
     var photos: [Photo] = []
+    private var tagValue: String = ""
+    private var size: Int = 0
     
-    func setImage(table: CatagoriesTable) {
-        print("Finished loading, refreshing table!")
-        table.catagoriesTable.reloadData()
+    init(withTags tags: String..., numOfPictures size: Int) {
+        tagValue = getTagValue(tags: tags)
+        self.size = size
+    }
+    
+    private func getTagValue(tags: [String]) -> String {
+        var result = ""
+        for tag in tags {
+            result.append(tag + ",")
+        }
+        return result
     }
     
     func getUrls(completionHandler functionToExecuteAtTheEnd: @escaping (Void) -> Void) {
@@ -23,9 +33,9 @@ class PictureGetter {
         let methodParametersForSearch = [
             Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.MethodSearch,
             Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
-            Constants.FlickrParameterKeys.Tags: Constants.FlickrParameterValues.TagsForPortrait,
+            Constants.FlickrParameterKeys.Tags: tagValue,
             Constants.FlickrParameterKeys.Extras: Constants.FlickrParameterValues.MediumURL,
-            Constants.FlickrParameterKeys.NumberOfImages: Constants.FlickrParameterValues.TenImage,
+            Constants.FlickrParameterKeys.NumberOfImages: String(size),
             Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.Format,
             Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
         ]
