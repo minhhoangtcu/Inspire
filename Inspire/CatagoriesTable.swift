@@ -58,6 +58,11 @@ class CatagoriesTable: UITableViewController {
             cell.leftCatagoryLabel = catagories[indexPath.section + indexPath.row][0] // we need to include indexPath.section because we want to ignore the first catagory.
             cell.rightCatagoryLabel = catagories[indexPath.section + indexPath.row][1]
             
+            if !pc.photos.isEmpty {
+                cell.leftCatagoryImage = pc.photos[indexPath.section + indexPath.row*2].image
+                cell.rightCatagoryImage = pc.photos[indexPath.section + indexPath.row*2 + 1].image
+            }
+            
             return cell
             
         }
@@ -73,11 +78,20 @@ class CatagoriesTable: UITableViewController {
         return 2
     }
     
+    // names the section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
             return "Catagories"
         } else {
             return ""
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            return 240.0
+        } else {
+            return 135.0
         }
     }
     
