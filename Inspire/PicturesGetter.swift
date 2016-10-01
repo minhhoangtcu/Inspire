@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class PictureGetter {
     
@@ -31,19 +32,27 @@ class PictureGetter {
     
     func getUrls(completionHandler functionToExecuteAtTheEnd: @escaping (Void) -> Void) {
         
+        let methodParametersForSearch = [
+            Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.MethodSearch,
+            Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
+            Constants.FlickrParameterKeys.Tags: tagValue,
+            Constants.FlickrParameterKeys.Extras: Constants.FlickrParameterValues.MediumURL,
+            Constants.FlickrParameterKeys.NumberOfImages: String(size),
+            Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.Format,
+            Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
+        ]
+        
+        Alamofire.request(Constants.Flickr.APIBaseURL, parameters: methodParametersForSearch).responseJSON { response in
+            if let value = response.result.value {
+                let json = JSON(value)
+                print(json["photos"].dictionaryValue)
+//                print(value)
+            }
+        }
         
         
         
-//        let methodParametersForSearch = [
-//            Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.MethodSearch,
-//            Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
-//            Constants.FlickrParameterKeys.Tags: tagValue,
-//            Constants.FlickrParameterKeys.Extras: Constants.FlickrParameterValues.MediumURL,
-//            Constants.FlickrParameterKeys.NumberOfImages: String(size),
-//            Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.Format,
-//            Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
-//        ]
-//        
+//
 //        // create url and request
 //        let session = URLSession.shared
 //        let urlString = Constants.Flickr.APIBaseURL + getUsableParamsForQuery(parameters: methodParametersForSearch)
