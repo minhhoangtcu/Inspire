@@ -256,7 +256,7 @@
 				TargetAttributes = {
 					B82FD73D1D94F14D000F19A8 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = B43REW4B7B;
+						DevelopmentTeam = ESYZ6DK9C8;
 						ProvisioningStyle = Automatic;
 					};
 					B82FD7511D94F14D000F19A8 = {
@@ -608,7 +608,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B43REW4B7B;
+				DEVELOPMENT_TEAM = ESYZ6DK9C8;
 				INFOPLIST_FILE = Inspire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.mhoang.Inspire;
@@ -623,7 +623,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B43REW4B7B;
+				DEVELOPMENT_TEAM = ESYZ6DK9C8;
 				INFOPLIST_FILE = Inspire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.mhoang.Inspire;
