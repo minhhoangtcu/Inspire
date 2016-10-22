@@ -37,6 +37,8 @@ struct Constants {
         
         // Mark: for getting images with certain tags
         static let MethodSearch = "flickr.photos.search"
+        static let MethodGetEXIF = "flickr.photos.getExif"
+        
         static let TagsForPortrait = "portrait"
         static let Format = "json"
         static let DisableJSONCallback = "1"

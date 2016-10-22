@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 import SwiftyJSON
+import PromiseKit
 
 class PictureGetter {
     
@@ -42,6 +43,7 @@ class PictureGetter {
             Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
         ]
         
+        // Firstly, request a bunch of images
         Alamofire.request(Constants.Flickr.APIBaseURL, parameters: methodParametersForSearch)
             .responseJSON { response in
                 guard let value = response.result.value else {
@@ -52,16 +54,46 @@ class PictureGetter {
                 
                 
                 let json = JSON(value)
-                for photo in (json["photos"].dictionaryValue["photo"]?.array)! {
-                    let temp = Photo(id: photo["id"].stringValue, url: photo["url_m"].stringValue, title: photo["title"].stringValue)
-                    self.photos.append(temp)
+                for photoJSON in (json["photos"].dictionaryValue["photo"]?.array)! {
+                    let temp = Photo(id: photoJSON["id"].stringValue, url: photoJSON["url_m"].stringValue, title: photoJSON["title"].stringValue)
+                    
+                    // Secondly, for each photo, we request its info. The promises are unessary, but it makes the code more readable.
+                    firstly {
+                        self.getEXIFInfo(photo: temp)
+                    }.then { result in
+                        print(result)
+                    }.catch { error in
+                        print("Error in getting photo EXIF")
+                        print(error)
+                    }
+                    
+                    
                 }
             }
     }
     
-    func getInfo(photo: Photo) {
-        
-        
-        
+    func getEXIFInfo(photo: Photo) -> Promise<JSON> {
+        return Promise { solve, reject in
+            
+            let photoID = photo.id! // since temp was passed into this function, when Alamofire start requesting, temp may disappear -> id may disappear too.
+            
+            let methodParametersForGetEXIF = [
+                Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.MethodGetEXIF,
+                Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
+                Constants.FlickrParameterKeys.PhotoID: photoID,
+                Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.Format,
+                Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
+            ]
+            
+            Alamofire.request(Constants.Flickr.APIBaseURL, parameters: methodParametersForGetEXIF)
+                .responseJSON { response in
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        solve(json)
+                    } else {
+                        reject(response.result.error!)
+                    }
+            }
+        }
     }
 }
