@@ -37,7 +37,7 @@ class PictureGetter {
             Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
             Constants.FlickrParameterKeys.Tags: tagValue,
             Constants.FlickrParameterKeys.Extras: Constants.FlickrParameterValues.MediumURL,
-            Constants.FlickrParameterKeys.NumberOfImages: String(size),
+            Constants.FlickrParameterKeys.NumberOfImages: String(size), // have to be String because it is a dictionary [String: String]
             Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.Format,
             Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
         ]
@@ -53,9 +53,15 @@ class PictureGetter {
                 
                 let json = JSON(value)
                 for photo in (json["photos"].dictionaryValue["photo"]?.array)! {
-                    let temp = Photo(url: photo["url_m"].stringValue, title: photo["title"].stringValue)
+                    let temp = Photo(id: photo["id"].stringValue, url: photo["url_m"].stringValue, title: photo["title"].stringValue)
                     self.photos.append(temp)
                 }
             }
+    }
+    
+    func getInfo(photo: Photo) {
+        
+        
+        
     }
 }

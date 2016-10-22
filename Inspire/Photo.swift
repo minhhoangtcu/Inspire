@@ -15,6 +15,7 @@ class Photo {
     private var url: String!
     var image: UIImage!
     var title: String!
+    var id: String!
     
     // info about the camera
     var cameraModel: String?
@@ -26,9 +27,11 @@ class Photo {
     var focalLength: String?
     var iso: String?
     
-    init(url: String, title: String) {
+    init(id: String, url: String, title: String) {
+        self.id = id
         self.url = url
         self.title = title
+        requestImage()
     }
     
     func requestImage() {
