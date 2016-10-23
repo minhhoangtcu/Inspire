@@ -8,10 +8,15 @@
 
 struct Constants {
     
-    // Check out: https://www.flickr.com/services/api/explore/flickr.photos.search
-    // Also: https://www.flickr.com/services/api/explore/flickr.photos.getExif for photoID: 28512674940 (my image)
+    // MARK: Clarifai
+    struct Clarifai {
+        static let clientID = "XgU4TGxLJbab8WVSQN04HNzMsp24ttAkH2o1r9pe"
+        static let clientSecret = "rydEOSNRqOqkbzoCOd-X-05W2ft7EH0Xmoy4Lmqj"
+    }
     
     // MARK: Flickr
+    // Check out: https://www.flickr.com/services/api/explore/flickr.photos.search
+    // Also: https://www.flickr.com/services/api/explore/flickr.photos.getExif for photoID: 28512674940 (my image)
     struct Flickr {
         static let APIBaseURL = "https://api.flickr.com/services/rest/"
     }

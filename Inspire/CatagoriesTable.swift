@@ -20,7 +20,7 @@ class CatagoriesTable: UITableViewController {
     
     // defines all picture getters
     let pc = PictureGetter(withTags: "portrait", numOfPictures: 10)
-
+    let tg = TagsGetter()
     
     // defines all catagories that we want to display
     let catagories: [[String]] = [["random"],
@@ -44,8 +44,10 @@ class CatagoriesTable: UITableViewController {
             
             cell.catagoryLabel = catagories[0][0]
             if pc.isDoneFectching {
-                cell.catagoryImage = pc.photos[0].image
-                print(pc.photos[0].toString() + "\n")
+                let firstPhoto = pc.photos[0]
+                cell.catagoryImage = firstPhoto.image
+                print(firstPhoto.toString() + "\n")
+//                tg.getTags(photo: firstPhoto)
             }
             
             return cell
@@ -63,8 +65,8 @@ class CatagoriesTable: UITableViewController {
             if pc.isDoneFectching {
                 cell.leftCatagoryImage = pc.photos[indexPath.section + indexPath.row*2].image
                 cell.rightCatagoryImage = pc.photos[indexPath.section + indexPath.row*2 + 1].image
-                print(pc.photos[indexPath.section + indexPath.row*2].toString() + "\n")
-                print(pc.photos[indexPath.section + indexPath.row*2 + 1].toString() + "\n")
+//                print(pc.photos[indexPath.section + indexPath.row*2].toString() + "\n")
+//                print(pc.photos[indexPath.section + indexPath.row*2 + 1].toString() + "\n")
             }
             
             return cell

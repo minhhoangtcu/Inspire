@@ -10,11 +10,18 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-func getTags(photo: Photo) -> [String] {
-    
-    var result: [String] = []
+class TagsGetter {
     
     
     
-    return result
+    func getTags(photo: Photo) -> [String] {
+        
+        var result: [String] = []
+        
+        let clarifai = ClarifaiAPI(clientID: Constants.Clarifai.clientID, clientSecret: Constants.Clarifai.clientSecret)
+        
+        return result
+    }
+    
 }
+
