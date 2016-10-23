@@ -4,6 +4,8 @@
 //
 ///** Provides access to the Clarifai image recognition services */
 //class Clarifai {
+// CREDIT: https://github.com/jodyheavener/Clarifai-iOS
+// CONVERTED TO SWIFT 3 BY ME
 //    
 //    var clientID: String
 //    var clientSecret: String
