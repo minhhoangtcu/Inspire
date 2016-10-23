@@ -19,6 +19,12 @@ class Photo {
     
     // info about the camera
     var cameraModel: String?
+    var cameraMake: String?
+    var camera: String? {
+        get {
+            return (cameraModel != nil && cameraMake != nil) ? "\(cameraMake) \(cameraModel)" : nil
+        }
+    }
     var lensModel: String?
     
     // info about the picture

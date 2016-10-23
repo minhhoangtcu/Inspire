@@ -43,7 +43,7 @@ class CatagoriesTable: UITableViewController {
             
             cell.catagoryLabel = catagories[0][0]
             if !pc.photos.isEmpty {
-                cell.catagoryImage = pc.photos[0].image
+                cell.catagoryImage = pc.photos[0]!.image
             }
             
             return cell
@@ -59,8 +59,8 @@ class CatagoriesTable: UITableViewController {
             cell.rightCatagoryLabel = catagories[indexPath.section + indexPath.row][1]
             
             if !pc.photos.isEmpty {
-                cell.leftCatagoryImage = pc.photos[indexPath.section + indexPath.row*2].image
-                cell.rightCatagoryImage = pc.photos[indexPath.section + indexPath.row*2 + 1].image
+                cell.leftCatagoryImage = pc.photos[indexPath.section + indexPath.row*2]?.image
+                cell.rightCatagoryImage = pc.photos[indexPath.section + indexPath.row*2 + 1]?.image
             }
             
             return cell

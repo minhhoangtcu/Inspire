@@ -62,6 +62,7 @@ struct Constants {
         static let tagspace = "tagspace"
         static let Tag = "tag"
         static let Content = "_content"
+        static let Make = "Make"
         static let Model = "Model"
         static let ShuttleSpeed = "ExposureTime"
         static let Aperture = "FNumber"
