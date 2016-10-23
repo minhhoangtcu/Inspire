@@ -14,7 +14,17 @@ import PromiseKit
 
 class PictureGetter {
     
-    var photos: [Int:Photo] = [:]
+    // global
+    var photos: [Photo]!
+    var isDoneFectching: Bool {
+        get {
+            return photos != nil && !photos.isEmpty
+        }
+    }
+    var functionToExecuteAtTheEnd: ((Void) -> Void)!
+    
+    // private
+    private var photosDict: [Int:Photo] = [:]
     private var tagValue: String = ""
     private var size: Int = 0
     
@@ -31,7 +41,7 @@ class PictureGetter {
         return result
     }
     
-    func getUrls(completionHandler functionToExecuteAtTheEnd: @escaping (Void) -> Void) {
+    func getUrls() {
         
         let methodParametersForSearch = [
             Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.MethodSearch,
@@ -56,11 +66,14 @@ class PictureGetter {
                 let json = JSON(value)
                 for photoJSON in (json[Constants.FlickrResponseKeys.Photos].dictionaryValue[Constants.FlickrResponseKeys.Photo]?.array)! {
                     let temp = Photo(id: photoJSON[Constants.FlickrResponseKeys.PhotoID].stringValue, url: photoJSON[Constants.FlickrResponseKeys.MediumURL].stringValue, title: photoJSON[Constants.FlickrResponseKeys.Title].stringValue)
-                    self.photos[Int(temp.id)!] = temp // add to the list right away, so that the app can display the image first as soon as possible
+                    self.photosDict[Int(temp.id)!] = temp // add to the list right away, so that the app can display the image first as soon as possible
                     
                     // Secondly, for each photo, we request its info.
                     self.getEXIFInfo(photoID: Int(temp.id)!)
                 }
+                
+                self.photos = [Photo](self.photosDict.values)
+                self.functionToExecuteAtTheEnd() // does not guarantee finish fetching EXIF
         }
     }
     
@@ -85,7 +98,7 @@ class PictureGetter {
 
                     let json = JSON(value)
                     
-                    guard let photo: Photo = self.photos[photoID] else {
+                    guard let photo: Photo = self.photosDict[photoID] else {
                         print("No such photo id: \(photoID) in the database")
                         return
                     }
@@ -123,6 +136,8 @@ class PictureGetter {
                             break // do not do anything otherwise
                         }
                     }
+                    
+                    self.functionToExecuteAtTheEnd() // update EXIF and reload?
             }
     }
 }

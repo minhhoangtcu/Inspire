@@ -49,4 +49,21 @@ class Photo {
             print("Photo: \(title) does not exist at \(imageURL)")
         }
     }
+    
+    // for debugging purposes
+    func toString() -> String {
+        let essentialInfo = "url: \t\(url)\n" +
+               "title: \t\(title)\n" +
+               "id: \t\(id)\n"
+        
+        let cameraInfo = "camera: \t\(camera)\n" +
+               "lens: \t\(lensModel)\n"
+        
+        let picInfo = "shuttle: \t\(shuttleSpeed)\n" +
+               "aperature: \t\(aperature)\n" +
+               "focalL: \t\(focalLength)\n" +
+               "iso: \t\(iso)\n"
+        
+        return essentialInfo + cameraInfo + picInfo
+    }
 }

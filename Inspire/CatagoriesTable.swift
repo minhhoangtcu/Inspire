@@ -20,6 +20,7 @@ class CatagoriesTable: UITableViewController {
     
     // defines all picture getters
     let pc = PictureGetter(withTags: "portrait", numOfPictures: 10)
+
     
     // defines all catagories that we want to display
     let catagories: [[String]] = [["random"],
@@ -42,8 +43,9 @@ class CatagoriesTable: UITableViewController {
             }
             
             cell.catagoryLabel = catagories[0][0]
-            if !pc.photos.isEmpty {
-                cell.catagoryImage = pc.photos[0]!.image
+            if pc.isDoneFectching {
+                cell.catagoryImage = pc.photos[0].image
+                print(pc.photos[0].toString() + "\n")
             }
             
             return cell
@@ -58,9 +60,11 @@ class CatagoriesTable: UITableViewController {
             cell.leftCatagoryLabel = catagories[indexPath.section + indexPath.row][0] // we need to include indexPath.section because we want to ignore the first catagory.
             cell.rightCatagoryLabel = catagories[indexPath.section + indexPath.row][1]
             
-            if !pc.photos.isEmpty {
-                cell.leftCatagoryImage = pc.photos[indexPath.section + indexPath.row*2]?.image
-                cell.rightCatagoryImage = pc.photos[indexPath.section + indexPath.row*2 + 1]?.image
+            if pc.isDoneFectching {
+                cell.leftCatagoryImage = pc.photos[indexPath.section + indexPath.row*2].image
+                cell.rightCatagoryImage = pc.photos[indexPath.section + indexPath.row*2 + 1].image
+                print(pc.photos[indexPath.section + indexPath.row*2].toString() + "\n")
+                print(pc.photos[indexPath.section + indexPath.row*2 + 1].toString() + "\n")
             }
             
             return cell
@@ -101,10 +105,11 @@ class CatagoriesTable: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pc.getUrls {
+        pc.functionToExecuteAtTheEnd = {
             print("Finished loading data")
             self.catagoriesTable.reloadData()
         }
+        pc.getUrls()
     }
 
     override func didReceiveMemoryWarning() {
