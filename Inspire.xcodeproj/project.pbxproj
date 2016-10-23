@@ -122,6 +122,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B8116BB01DBC50210041A0BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8089D821D96343400316BF2 /* PicturesGetter.swift */,
+				B8996A1A1D96E5C500D335E7 /* Photo.swift */,
+				B8089D841D96396B00316BF2 /* FlickrAPIConstants.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B8116BB11DBC50280041A0BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8089D801D96317200316BF2 /* DoubleCatagoryCell.swift */,
+				B82FD7451D94F14D000F19A8 /* Main.storyboard */,
+				B818316E1D961D6D0003DF04 /* SingleCatagoryCell.swift */,
+				B82FD7431D94F14D000F19A8 /* CatagoriesTable.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B8116BB21DBC50320041A0BF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		B8116BB31DBC50400041A0BF /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				B82FD74A1D94F14D000F19A8 /* LaunchScreen.storyboard */,
+				B82FD7411D94F14D000F19A8 /* AppDelegate.swift */,
+				B82FD74D1D94F14D000F19A8 /* Info.plist */,
+				B82FD7481D94F14D000F19A8 /* Assets.xcassets */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		B82FD7351D94F14D000F19A8 = {
 			isa = PBXGroup;
 			children = (
@@ -147,17 +186,10 @@
 		B82FD7401D94F14D000F19A8 /* Inspire */ = {
 			isa = PBXGroup;
 			children = (
-				B82FD7411D94F14D000F19A8 /* AppDelegate.swift */,
-				B82FD7431D94F14D000F19A8 /* CatagoriesTable.swift */,
-				B8089D821D96343400316BF2 /* PicturesGetter.swift */,
-				B8996A1A1D96E5C500D335E7 /* Photo.swift */,
-				B8089D841D96396B00316BF2 /* FlickrAPIConstants.swift */,
-				B8089D801D96317200316BF2 /* DoubleCatagoryCell.swift */,
-				B82FD7451D94F14D000F19A8 /* Main.storyboard */,
-				B818316E1D961D6D0003DF04 /* SingleCatagoryCell.swift */,
-				B82FD7481D94F14D000F19A8 /* Assets.xcassets */,
-				B82FD74A1D94F14D000F19A8 /* LaunchScreen.storyboard */,
-				B82FD74D1D94F14D000F19A8 /* Info.plist */,
+				B8116BB31DBC50400041A0BF /* Support */,
+				B8116BB21DBC50320041A0BF /* Presenter */,
+				B8116BB11DBC50280041A0BF /* View */,
+				B8116BB01DBC50210041A0BF /* Model */,
 			);
 			path = Inspire;
 			sourceTree = "<group>";

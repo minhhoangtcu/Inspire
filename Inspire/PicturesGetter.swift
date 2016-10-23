@@ -98,7 +98,7 @@ class PictureGetter {
 //                        print("TAG: \(exif[Constants.FlickrResponseKeys.Tag].stringValue) \t \(content)")
                         
                         switch (exif[Constants.FlickrResponseKeys.Tag].stringValue) {
-                        case Constants.FlickrResponseKeys.
+                        case Constants.FlickrResponseKeys.Make:
                             photo.cameraMake = content
                             break
                         case Constants.FlickrResponseKeys.Model:
